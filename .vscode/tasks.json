@@ -7,6 +7,11 @@
 			"label": "Start",
 			"type": "npm",
 			"script": "start",
+			"options": {
+				"env": {
+					"BROWSER": "none"
+				}
+			},
 			"problemMatcher": {
 				"background": {
 					"activeOnStart": true,
