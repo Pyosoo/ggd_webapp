@@ -160,7 +160,7 @@ function Game_choice(props) {
         //오답일시
         else { 
             console.log("오답");
-            alert(`오답!! 정답=${randnum1*randnum2}`);
+            alert(`정답은 ${randnum1*randnum2} 입니다.`);
             randnum2++;
             X++; 
             makeRandom(props.dan);
