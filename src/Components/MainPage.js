@@ -2,16 +2,9 @@ import React from 'react';
 import Navibar from '../Utils/Navibar';
 import "../CSSs/MainPage.css";
 import Navibar2 from '../Utils/Navibar2';
-import monkey from '../Images/monkey.png';
-import mice from '../Images/mice.png';
-import rabbit from '../Images/rabbit.png';
-import tiger from '../Images/tiger.png';
-import { Button } from '@material-ui/core';
-import leftArrow from '../Images/leftArrow.png';
-import rightArrow from '../Images/rightArrow.png';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store';
-import store from '../store';
+import { CodeSharp } from '@material-ui/icons';
 /* 
 메인페이지의 구성
     1. 두개의 div태그를 갖는다. (input창과 등록하기 버튼을 가진 화면 + 종류를 선택할 수 있는 화면)
@@ -43,26 +36,19 @@ class MainPage extends React.Component {
 
     render() {
         const {updateState} = this.props;
-        console.log("Mainpage 에서 받은 Redux data")
-        console.log(this.props.UserPlusImageName);
-
 
         let ImgArr = ["monkey", "mice", "tiger", "rabbit"];
         const CheckID = () => {
             // 아이디 중복 검사 -> Local이라 상관없어짐
-            if (this.state.registerInput === '') {
-                alert("닉네임을 설정해주세요!");
-            } else {
-                this.setState({
-                    registerDP: 'none',
-                    choiceDP: 'grid'
-                })
-                localStorage.setItem("Nickname", this.state.registerInput);
-            }
+            
+            this.setState({
+                registerDP: 'none',
+                choiceDP: 'grid'
+            })
+            localStorage.setItem("Nickname", this.state.registerInput);
 
             // 이미지 이름과 UserName을 모든 컴포넌트에서 사용하기 편하게 Store에 저장변경
             updateState(this.state.CurrentImgIndex, this.state.registerInput);
-            console.log(this.props.UserPlusImageName);
         }
 
 
@@ -72,7 +58,7 @@ class MainPage extends React.Component {
                 <div className="register" style={{ display: this.state.registerDP }}>
                     <div className="Main_ImgBox" >
                         <div className="forVertical">
-                            <img className="changeImg changeImgLeft" onClick={()=>{
+                            <img alt='' className="changeImg changeImgLeft" onClick={()=>{
                                 if(currentIdx === 0){
                                     this.setState({CurrentImgIndex: 3});
                                     currentIdx = 3;
@@ -85,9 +71,9 @@ class MainPage extends React.Component {
                                 } 
                             }} src={require('../Images/leftArrow.png')} />
                         </div>
-                        <img className="Mainpage_img" src={require(`../Images/${ImgArr[this.state.CurrentImgIndex]}.png`) } />
+                        <img alt='' className="Mainpage_img" src={require(`../Images/${ImgArr[this.state.CurrentImgIndex]}.png`) } />
                         <div className="forVertical">
-                            <img className="changeImg changeImgRight" onClick={()=>{
+                            <img alt='' className="changeImg changeImgRight" onClick={()=>{
                                 if(currentIdx === 3){
                                     this.setState({CurrentImgIndex: 0});
                                     currentIdx = 0;
@@ -118,7 +104,6 @@ class MainPage extends React.Component {
                 </div>
 
                 <div className="choice" style={{ display: this.state.choiceDP }}>
-                    {/* <Navibar name={this.state.registerInput}/> */}
                     <Navibar2 name={this.state.registerInput} imgidx={currentIdx} />
                 </div>
 

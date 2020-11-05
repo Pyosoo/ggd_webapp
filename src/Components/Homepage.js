@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "../CSSs/Homepage.css";
 import { useHistory } from "react-router-dom";
 
-let ImgArr = ["monkey", "mice", "tiger", "rabbit"];
 function Homepage(props){
 
-    const [currentUserName, setCurrentUserName] = useState('');
     let userName = localStorage.getItem("Nickname");
     let history = useHistory();
     //console.log(props);
@@ -17,7 +15,7 @@ function Homepage(props){
     return(
         <div className="Homepage_Container">
             <div className="Homepage_ImgBox">
-                <img className="Homepage_img" src={require(`../Images/${ImgArr[props.idx]}.png`)}></img>
+                <img alt='' className="Homepage_img" src={require(`../Images/${ImgArr[props.idx]}.png`)}></img>
             </div>
             
             <div className="Homepage_BtnBox">

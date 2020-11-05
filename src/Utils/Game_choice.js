@@ -1,6 +1,6 @@
 // 객관식 게임
 // 객관식은 N단 x 1~9까지 차례대로 나온다.
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "../CSSs/Game_choice.css";
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -126,10 +126,6 @@ function Game_choice(props) {
     const [resultDP, setResultDP] = useState('none');
     const [TabletChoiceBoxDP, setTCBD] = useState('');
     
-    const [answer0, setAnswer0] = useState(0);
-    const [answer1, setAnswer1] = useState(0);
-    const [answer2, setAnswer2] = useState(0);
-    const [answer3, setAnswer3] = useState(0);
 
     randnum1 = props.dan;
     if(props.dan !== "10") randnum2 = count+1;

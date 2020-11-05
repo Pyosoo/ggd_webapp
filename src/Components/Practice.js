@@ -4,7 +4,6 @@ import Game_choice from '../Utils/Game_choice';
 
 import { connect } from 'react-redux';
 import { actionCreators } from '../store';
-import store from '../store';
 
 
 // 문제연습은 객관식
@@ -37,7 +36,7 @@ function Practice(props) {
 
             <div style={{ display: btnDP }}>
                 <div className="Practice_imgbox">
-                    <img className="Practice_img" src={require(`../Images/${ImgArr[props.idx]}.png`)}></img>
+                    <img alt='' className="Practice_img" src={require(`../Images/${ImgArr[props.idx]}.png`)}></img>
                 </div>
                 <p className="Practice_text">연습하고자 하는 구구단을 선택하세요</p>
                 <div className="Practice_Btn_Line" style={{paddingLeft:'20px', paddingRight:'5px'}}>

@@ -72,7 +72,7 @@ class Navibar2 extends React.Component {
                             <div className="Navibar_imgbox">
                                 <MenuItem onClick={this.handleDrawerToggle}>
                                     <Link name="" className="linkitem1" to="/" >
-                                        <img className="Navibar2_img" src={require(`../Images/${ImgArr[this.props.imgidx]}.png`)} />
+                                        <img alt='' className="Navibar2_img" src={require(`../Images/${ImgArr[this.props.imgidx]}.png`)} />
                                         </Link>
                                 </MenuItem>
                             </div>

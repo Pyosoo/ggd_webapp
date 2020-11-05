@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import Clockimg from '../Images/Clockimg.png';
 
 
 let LimitCountDown;
@@ -82,10 +81,6 @@ let score = 0;
 const IncreaseScore = () => { score += 1; }
 const ZeroScore = () => { score = 0; }
 
-const SubmitAnswer = () => {
-    let ans = document.dab;
-    ans.submit();
-}
 
 getLocalStorageData();
 
@@ -98,7 +93,6 @@ function Game(props) {
     const [descDP, setDescDP] = useState('');
     const [gameDP, setGameDP] = useState('none');
     const [resultDP, setResultDP] = useState('none');
-    const [startTimer, setStartTimer] = useState(0);
     const [open, setOpen] = useState(false);
     const [textcount, setTextcount] = useState(3);
     const [limitTime, setLimitTime] = useState(120);
@@ -148,11 +142,11 @@ function Game(props) {
 
     // =============================== 시험 제한 시간 타이머 ==================================================
 
-    let limittimer;
+    let limittimer = null;
     var limit = 120;
     useEffect(()=>{
         // 타이머
-         LimitCountDown = () => {
+        LimitCountDown = () => {
             console.log("제한시간타이머 작동");
              limittimer = window.setInterval(()=>{
                  console.log(`시간 : ${limit}`);
@@ -210,14 +204,13 @@ function Game(props) {
         <div>
             {/* 게임 시작을 누르는 div */}
             <div className="desc_box" style={{ display: descDP }}>
-                <img className="Game_start_img" src={require(`../Images/${ImgArr[props.idx]}.png`)} ></img>
+                <img alt='' className="Game_start_img" src={require(`../Images/${ImgArr[props.idx]}.png`)} ></img>
                 <button className="Game_startBtn" onClick={e => {
                     setDescDP('none');
                     setGameDP('');
                     setResultDP('none');
                     makeRandom();
                     ZeroScore();
-                    setStartTimer(1);
                     handleOpen();
                     RightAnswer = [];
                     WrongAnswer = [];
@@ -255,7 +248,6 @@ function Game(props) {
                     <div className="limit_bar_img"></div> 
                     <div className="limit_bar_back">
                         <div className={"limit_bar " + "sec" + limitTime}>
-                           
                         </div>
                     </div>
                     
@@ -452,7 +444,7 @@ function Game(props) {
                
                 <div className="result_Btn_div">
                     <div className="OnTablet_ResultScoreDiv">
-                            <img className="OnTablet_ResultImg" src={require(`../Images/${ImgArr[props.idx]}.png`)}></img>
+                            <img alt='' className="OnTablet_ResultImg" src={require(`../Images/${ImgArr[props.idx]}.png`)}></img>
                             <p className="OnTablet_Resulttext1">점수</p>
                             <p className="OnTablet_Resulttext2">{score * 10}</p>
                             <div className="OnTablet_Cutline"></div>

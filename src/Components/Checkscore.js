@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "../CSSs/Checkscore.css";
-import bad from '../Images/bad.png';
-import good from '../Images/good.png';
-import great from '../Images/great.png';
 import { connect } from 'react-redux';
 import { actionCreators } from '../store';
-import store from '../store';
     
 let score_arr = localStorage.getItem("Totalscore");
 let EXIST;
@@ -22,10 +18,6 @@ let imgindexbox = [];
         let d = localStorage.getItem("DateOfScore"); let dates = JSON.parse(d);
         let h = localStorage.getItem("HourOfScore"); let hours = JSON.parse(h);
         let b = localStorage.getItem("BoonOfScore"); let boons = JSON.parse(b);
-      //  console.log(scores);
-     //   console.log(years);
-     //   console.log(months);
-     //   console.log(dates);
     
         imgindexbox = [];
         // 데이터의 유무 판단하기
@@ -40,11 +32,10 @@ let imgindexbox = [];
             if(scores.length > 5) last_index = scores.length - 5;
             else if(scores.length <= 5) last_index = 0;
             for(let i=scores.length-1; i>=last_index; i--){
-                let chat;
-                if(scores[i] == 10) selectimg = 2;
+                if(scores[i] === 10) selectimg = 2;
                 else if(scores[i] >= 9) selectimg = 2;
                 else if(scores[i] >=6) selectimg = 1;
-                else if(scores[i] == 0) selectimg = 0;
+                else if(scores[i] === 0) selectimg = 0;
                 else selectimg = 0;
 
                 let temp = + years[i] + "." + months[i] + "." + dates[i]+"."+ hours[i] +":" + boons[i]+    "　　　"+ scores[i]*10+"점" ;
@@ -80,7 +71,7 @@ function Checkscore(props){
         list = arr.map(data => (
             <li className="Check_listitem" style={{listStyle:'none'}} key={ForKeyUnique++}>
                 {data}　　 
-                <img className="score_level_img" src={require(`../Images/${scoreImgArr[imgindexbox[index++]]}.png`)} 
+                <img alt='' className="score_level_img" src={require(`../Images/${scoreImgArr[imgindexbox[index++]]}.png`)} 
                 />
             </li>
         ))
@@ -97,7 +88,7 @@ function Checkscore(props){
     return(
         <div className="total_container">
             <div style={{display:d1}}>
-                <img className="checkscore_img" src={require(`../Images/${ImgArr[props.idx]}.png`)} />
+                <img alt='' className="checkscore_img" src={require(`../Images/${ImgArr[props.idx]}.png`)} />
                 <p className="no_score_text">시험을 보고</p>
                 <p className="no_score_text">성적을 확인해주세요.</p>
                 </div>
