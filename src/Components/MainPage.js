@@ -16,13 +16,7 @@ import { CodeSharp } from '@material-ui/icons';
 
 
 let currentIdx = 0;
-function alreadyPlayer() {
-    let username = localStorage.getItem("Nickname");
-    if (username != null) {
-        //console.log("있다이미");
-    }
-}
-alreadyPlayer();
+
 class MainPage extends React.Component {
     constructor(props) {
         super(props);
@@ -39,16 +33,20 @@ class MainPage extends React.Component {
 
         let ImgArr = ["monkey", "mice", "tiger", "rabbit"];
         const CheckID = () => {
-            // 아이디 중복 검사 -> Local이라 상관없어짐
+            // ID를 입력했다면 -> Display변경을 통해 Homepage로 전환
+            if(this.state.registerInput !== ''){
+                this.setState({
+                    registerDP: 'none',
+                    choiceDP: 'grid'
+                })
+                localStorage.setItem("Nickname", this.state.registerInput);
+    
+                // 이미지 이름과 UserName을 모든 컴포넌트에서 사용하기 편하게 Store에 저장
+                updateState(this.state.CurrentImgIndex, this.state.registerInput);
+            }else{
+                alert("사용하실 닉네임을 설정해주세요!");
+            }
             
-            this.setState({
-                registerDP: 'none',
-                choiceDP: 'grid'
-            })
-            localStorage.setItem("Nickname", this.state.registerInput);
-
-            // 이미지 이름과 UserName을 모든 컴포넌트에서 사용하기 편하게 Store에 저장변경
-            updateState(this.state.CurrentImgIndex, this.state.registerInput);
         }
 
 

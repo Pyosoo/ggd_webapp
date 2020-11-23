@@ -1,6 +1,16 @@
-// 객관식 게임
-// 객관식은 N단 x 1~9까지 차례대로 나온다.
-import React, { useState } from 'react';
+
+/*
+
+    객관식 게임의 진행 과정
+
+    1. 단을 선택한다 
+
+*/
+
+
+
+
+import React, { useEffect, useState } from 'react';
 import "../CSSs/Game_choice.css";
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
@@ -39,7 +49,7 @@ const makeRandom = val => {
         let answerC = randnum1 * randnum2;
         let answerD = randnum1 * (randnum2 + 1);
         answers = [answerA, answerB, answerC, answerD];
-        answers.sort(function () {
+        answers.sort(function(){
             return Math.random() - Math.random();
         });
     }
@@ -49,7 +59,7 @@ const makeRandom = val => {
         let answerC = randnum1 * randnum2;          
         let answerD = randnum1 * (randnum2 + 1);    
         answers = [answerA, answerB, answerC, answerD];
-        answers.sort(function () {
+        answers.sort(function(){
             return Math.random() - Math.random();
         });
     }
@@ -178,9 +188,8 @@ function Game_choice(props) {
         history.push("/");
     }
 
-
-    makeRandom(props.dan);
-
+    makeRandom(props.dan); //맨 처음에 하나 만들어 놓음
+    
     return (
         <div className="Game_choice_Container">
             <div className="GH_gugudan_box" style={{ display: gameDP }}>
@@ -195,7 +204,7 @@ function Game_choice(props) {
                 {/* 객관식 답 누를 수 있는 버튼 */}
                 <div className="OnMobile_ChoiceBox" >
                     <div className="Choice_Line">
-                        <button className="Answer_Btn" id={answers[0]} onClick={check}>{answers[0]}</button>
+                        <button className="Answer_Btn" id={answers[0]} onClick={check}>{answers[0]}</button>        
                         <button className="Answer_Btn" id={answers[1]} onClick={check}>{answers[1]}</button>
                     </div>
                     <div className="Choice_Line">
@@ -207,6 +216,7 @@ function Game_choice(props) {
                 </div>
             </div>
 
+            {/* 타블렛 이상 크기의 기기에서 보여질 객관식 창 */}
             <div className="OnTablet_ChoiceBox" style={{display:TabletChoiceBoxDP}}>
                 <p className="OnTablet_text">다음 중에 알맞은 답을 고르세요</p>
                 <div className="Choice_Line">
@@ -220,6 +230,7 @@ function Game_choice(props) {
             </div>
 
 
+            {/* 게임 끝났을 시 나올 모달 창 */}
             <div className="result_box" style={{ display: resultDP }}>
                 <Modal
                     aria-labelledby="spring-modal-title"

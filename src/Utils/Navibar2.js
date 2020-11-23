@@ -81,7 +81,7 @@ class Navibar2 extends React.Component {
                             <MenuItem id="연습 하기" onClick={this.handleDrawerToggle}><Link name="연습 하기" className="linkitem" to="/practice">연습 하기</Link></MenuItem>
                             <MenuItem id="시험 보기" onClick={this.handleDrawerToggle}><Link name="시험 보기" className="linkitem" to="/easytest">시험 보기</Link></MenuItem>
                             <MenuItem id="성적 확인" onClick={this.handleDrawerToggle}><Link name={this.props.name + "의 성적 확인"} className="linkitem" to="/checkscore">{this.props.name}의 성적 확인</Link></MenuItem>
-                        </div>
+                        </div>  
                     </Drawer>
                 </div>
                 <div style={{textAlign:"center", width:'100%'}} >

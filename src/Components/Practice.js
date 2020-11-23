@@ -22,11 +22,7 @@ function Practice(props) {
         alert(`${e.target.id}단을 연습합니다.`)
         setGameDP('');
         setBtnDP('none');
-        updateState(props.UserPlusImageName.ImageIndex, props.UserPlusImageName.UserName, e.target.id);
     }
-
-    console.log("practice 페이지");
-    console.log(props.UserPlusImageName);
 
     return (
         <div className="Practice_Container">
@@ -70,6 +66,7 @@ function Practice(props) {
     3. 컴포넌트와 앞서 만든 함수들을 connect해준다. connect는 컴포넌트에서 store에 접근할 수 있게 연결을 해주는 것이다.
 */
 
+/*
 
 // Redux state로부터 home에 prop으로써 전달한다는 뜻.
 function mapStateToProps(state, ownProps){
@@ -83,4 +80,6 @@ function mapDispatchToProps(dispatch){
      };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Practice);
+export default connect(mapStateToProps, mapDispatchToProps)(Practice);  */
+
+export default Practice;

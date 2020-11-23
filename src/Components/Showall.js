@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import "../CSSs/Showall.css";
 
 
@@ -10,24 +10,27 @@ let arr1=[], arr2=[], arr3=[], arr4=[];
         result =  2 + " x " + j;
         arr2 = [...arr2, result];
     }
+    // 5줄 4줄로 나눠서 보여주기 위해 다른배열에 넣어놓음..
     for(let j=6; j<10; j++){
         let result = 2 + " x " + j + " = " + 2 * j ;
         arr3 = [...arr3, result];
         result =  2 + " x " + j;
         arr4 = [...arr4, result];
     }
-    let index = 0;
-    let temp1 = arr1.map((menu) => (
-        <li className="showall_listitem" key={index++}>{menu}</li>) // key 중복 바꿔야함 !!=========================================
+
+
+
+    let temp1 = arr1.map((menu, index) => (
+        <li className="showall_listitem" key={index}>{menu}</li>) // key 중복 바꿔야함 !!=========================================
     );
-    let temp2 = arr3.map((menu)=>(
-        <li className="showall_listitem" key={index++}>{menu}</li>
+    let temp2 = arr3.map((menu, index)=>(
+        <li className="showall_listitem" key={index}>{menu}</li>
     ))
-    let temp3 = arr2.map((menu)=>(
-        <li className="showall_listitem" key={index++}>{menu}</li>
+    let temp3 = arr2.map((menu, index)=>(
+        <li className="showall_listitem" key={index}>{menu}</li>
     ))
-    let temp4 = arr4.map((menu)=>(
-        <li className="showall_listitem" key={index++}>{menu}</li>
+    let temp4 = arr4.map((menu, index)=>(
+        <li className="showall_listitem" key={index}>{menu}</li>
     ))
 
 
@@ -35,7 +38,7 @@ let arr1=[], arr2=[], arr3=[], arr4=[];
 
 
 function Showall() {
-    //여기는 render 부분이라고 생각하면 된다.
+
     let unshow1 =[];
     let unshow2 =[];
     let answer = [];
@@ -52,10 +55,7 @@ function Showall() {
     
 
 
-    function show(n) {
-        let last;
-        if (n < 10) last = 9;
-        else last = n;
+    function show(n) { // 매개변수를 통해 받음으로써 9단 이상의 구구단을 만들 확장성이 생김
         for (let j = 1; j <= 5; j++) {
             let result = n + " x " + j + " = " + n * j ;
             answer = [...answer, result];
@@ -68,18 +68,17 @@ function Showall() {
             result =  n + " x " + j;
             unshow2 = [...unshow2, result];
         }
-        let index = 0;
-        const menuList = answer.map((menu) => (
-            <li className="showall_listitem" key={index++}>{menu}</li>) // key 중복 바꿔야함 !!=========================================
+        const menuList = answer.map((menu,index) => (
+            <li className="showall_listitem" key={index}>{menu}</li>) // key 중복 바꿔야함 !!=========================================
         );
-        const menuList2 = answerB.map((menu)=>(
-            <li className="showall_listitem" key={index++}>{menu}</li>
+        const menuList2 = answerB.map((menu,index)=>(
+            <li className="showall_listitem" key={index}>{menu}</li>
         ))
-        const unshowList1 = unshow1.map((menu)=>(
-            <li className="showall_listitem" key={index++}>{menu}</li>
+        const unshowList1 = unshow1.map((menu,index)=>(
+            <li className="showall_listitem" key={index}>{menu}</li>
         ))
-        const unshowList2 = unshow2.map((menu)=>(
-            <li className="showall_listitem" key={index++}>{menu}</li>
+        const unshowList2 = unshow2.map((menu,index)=>(
+            <li className="showall_listitem" key={index}>{menu}</li>
         ))
         setA(menuList);
         setB(menuList2);
@@ -98,10 +97,6 @@ function Showall() {
         setDp1('none');
         setDp2('flex')
     }
-
-    useEffect(()=>{
-        console.log("D");
-    })
 
     //InitialGugudan();
     return (
