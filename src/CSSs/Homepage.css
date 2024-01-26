@@ -91,7 +91,9 @@
 
     .Homepage_BtnBox{
         width: 600px;
-        display: inline-block;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .Homepage_Btn{
         display: inline-block;
@@ -158,7 +160,9 @@
 
     .Homepage_BtnBox{
         width: 600px;
-        display: inline-block;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .Homepage_Btn{
         display: inline-block;
@@ -224,7 +228,9 @@
 
     .Homepage_BtnBox{
         width: 600px;
-        display: inline-block;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .Homepage_Btn{
         display: inline-block;

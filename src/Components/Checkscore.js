@@ -125,7 +125,9 @@ function mapStateToProps(state, ownProps){
 // reducer에 action을 알리는 함수 
 function mapDispatchToProps(dispatch){
     return {
-        updateState : (II, UN) => dispatch(actionCreators.updateState(II,UN))
+        setImgIndex: idx => dispatch(actionCreators.setImgIndex(idx)),
+        setUserName: idx => dispatch(actionCreators.setUserName(idx)),
+        setDan: idx => dispatch(actionCreators.setDan(idx)),
      };
 }
 

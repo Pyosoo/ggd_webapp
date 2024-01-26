@@ -203,6 +203,9 @@
         margin-top: 50px;
         width: 200px;
         height: 90px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         background: #FFFFFF;
         border: 1px solid rgba(196, 196, 196, 0.1);
         box-sizing: border-box;
@@ -658,6 +661,9 @@
         margin-top: 35px;
         width: 394px;
         height: 80px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         background: #FFFFFF;
         border: 1px solid rgba(196, 196, 196, 0.1);
         box-sizing: border-box;
@@ -1148,8 +1154,11 @@
     }
     .Game_startBtn{
         margin-top: 35px;
+        display: block;
         width: 394px;
         height: 80px;
+        margin-left: auto;
+        margin-right: auto;
         background: #FFFFFF;
         border: 1px solid rgba(196, 196, 196, 0.1);
         box-sizing: border-box;
@@ -1644,6 +1653,9 @@
         margin-top: 35px;
         width: 394px;
         height: 80px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         background: #FFFFFF;
         border: 1px solid rgba(196, 196, 196, 0.1);
         box-sizing: border-box;
