@@ -5,14 +5,13 @@
     1. 단을 선택한다 
 
 */
-
-import React, { useEffect, useState } from "react";
+import React, { forwardRef, ReactNode, useState } from "react";
+import { useSpring, animated, SpringConfig } from "react-spring";
 import "../CSSs/Game_choice.css";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
-import { useSpring, animated } from "react-spring"; // web.cjs is required for IE 11 support
 import { useNavigate } from "react-router-dom";
 let randnum1,
   randnum2 = 1;
@@ -67,8 +66,18 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
   },
 }));
-const Fade = React.forwardRef(function Fade(props, ref) {
-  const { in: open, children, onEnter, onExited, ...other } = props;
+
+interface FadeProps {
+  in: boolean;
+  children?: ReactNode;
+  onEnter?: () => void;
+  onExited?: () => void;
+}
+
+const Fade = forwardRef<HTMLDivElement, FadeProps>(function Fade(
+  { in: open, children, onEnter, onExited, ...other },
+  ref
+) {
   const style = useSpring({
     from: { opacity: 0 },
     to: { opacity: open ? 1 : 0 },
@@ -85,18 +94,11 @@ const Fade = React.forwardRef(function Fade(props, ref) {
   });
 
   return (
-    <animated.div ref={ref} style={style} {...other}>
+    <animated.div ref={ref} style={style as any} {...other}>
       {children}
     </animated.div>
   );
 });
-
-Fade.propTypes = {
-  children: PropTypes.element,
-  in: PropTypes.bool.isRequired,
-  onEnter: PropTypes.func,
-  onExited: PropTypes.func,
-};
 
 let O = 0;
 let X = 0;
@@ -109,6 +111,8 @@ function Game_choice(props) {
   const [gameDP, setGameDP] = useState("inline-block");
   const [resultDP, setResultDP] = useState("none");
   const [TabletChoiceBoxDP, setTCBD] = useState("");
+
+  let navigate = useNavigate();
 
   randnum1 = props.dan;
   if (props.dan !== "10") randnum2 = count + 1;
@@ -157,7 +161,6 @@ function Game_choice(props) {
     }
   };
 
-  let navigate = useNavigate();
   const goHome = () => {
     navigate("/");
   };
@@ -234,6 +237,9 @@ function Game_choice(props) {
           onClose={handleClose}
           closeAfterTransition
           BackdropComponent={Backdrop}
+          onBackdropClick={() => {
+            navigate("/");
+          }}
           BackdropProps={{
             timeout: 500,
           }}

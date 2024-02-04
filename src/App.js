@@ -1,13 +1,14 @@
 import React from "react";
 import "./App.css";
-import MainPage from "./Components/MainPage.tsx";
 import { Route, Routes } from "react-router-dom";
-import Homepage from "./Components/Homepage.js";
-import Practice from "./Components/Practice.js";
-import Showall from "./Components/Showall.js";
-import EasyTest from "./Components/EasyTest.js";
+import MainPage from "./Components/MainPage.tsx";
 import Navibar2 from "./Utils/Navibar2.js";
-import Navibar from "./Utils/Navibar.js";
+import Homepage from "./Components/Homepage.tsx";
+import Showall from "./Components/Showall.tsx";
+import EasyTest from "./Components/EasyTest.tsx";
+import Practice from "./Components/Practice.tsx";
+import Checkscore from "./Components/Checkscore.tsx";
+
 // 모바일 브라우저 주소창 안보이게 하기
 function hideAddressBar() {
   if (document.height <= window.outerHeight) return; // 웹페이지의 높이가 화면높이보다 작을 때는 실행할 필요가 없으므로 종료
@@ -34,6 +35,7 @@ function App() {
         <Route path="practice" element={<Practice />} />
         <Route path="showall" element={<Showall />} />
         <Route path="easytest" element={<EasyTest />} />
+        <Route path="checkscore" element={<Checkscore />} />
       </Route>
     </Routes>
   );

@@ -20,9 +20,15 @@ const setDan = (dan) => {
   };
 };
 
+export interface storeState {
+  ImageIndex: number;
+  UserName: string;
+  dan: number;
+}
+
 //3. reducer를 생성한다. state와 action을 입력 받고 바뀐 결과 state를 return 한다.
 const reducer = (
-  state = {
+  state:storeState = {
     ImageIndex: 0,
     UserName: "사용자명",
     dan: 0,
@@ -32,14 +38,17 @@ const reducer = (
   switch (action.type) {
     case "UPDATE_IMG_INDEX":
       return {
+        ...state,
         ImageIndex: action.payload,
       };
     case "SET_USER_NAME":
       return {
+        ...state,
         UserName: action.payload,
       };
     case "SET_DAN":
       return {
+        ...state,
         dan: action.payload,
       };
     default:

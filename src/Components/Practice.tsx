@@ -3,17 +3,18 @@ import "../CSSs/Practice.css";
 import Game_choice from "../Utils/Game_choice";
 import { useSelector, useDispatch } from "react-redux";
 import { connect } from "react-redux";
+import { storeState } from "../store";
 
 // 문제연습은 객관식
 // 시험보기만 주관식
 
-function Practice(props) {
+function Practice() {
   const [dan, setDan] = useState();
   const [btnDP, setBtnDP] = useState("");
   const [gameDP, setGameDP] = useState("none");
   const ImgArr = ["monkey", "mice", "tiger", "rabbit"];
 
-  const ImgIndex = useSelector((state) => state.ImageIndex);
+  const ImgIndex = useSelector((state: storeState) => state.ImageIndex);
 
   const danChoice = (e) => {
     setDan(e.target.id);
@@ -37,10 +38,7 @@ function Practice(props) {
           ></img>
         </div>
         <p className="Practice_text">연습하고자 하는 구구단을 선택하세요</p>
-        <div
-          className="Practice_Btn_Line"
-          style={{ paddingLeft: "20px", paddingRight: "5px" }}
-        >
+        <div className="Practice_Btn_Line">
           <button className="Practice_Btn" id="2" onClick={danChoice}>
             2단
           </button>
@@ -54,10 +52,7 @@ function Practice(props) {
             5단
           </button>
         </div>
-        <div
-          className="Practice_Btn_Line"
-          style={{ paddingLeft: "20px", paddingRight: "5px" }}
-        >
+        <div className="Practice_Btn_Line">
           <button className="Practice_Btn" id="6" onClick={danChoice}>
             6단
           </button>
@@ -79,10 +74,4 @@ function Practice(props) {
   );
 }
 
-// // Redux state로부터 home에 prop으로써 전달한다는 뜻.
-// function mapStateToProps(state, ownProps) {
-//   return { ImageIndex: state.ImageIndex };
-// }
-
-// export default connect(mapStateToProps)(Practice);
 export default Practice;

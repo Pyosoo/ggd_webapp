@@ -5,7 +5,10 @@
 
 @media (min-width: 320px) and (max-width: 420px) {
     .Game_choice_Container{
-        width: 100%;
+        width: max-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .GH_gugudan_box{
         width: 100%;
@@ -149,9 +152,10 @@
 @media (min-width: 768px) and (max-width: 1024px) {
 
     .Game_choice_Container{
-        display: inline-block;
-        display: inline-block;
-        width: 768px;
+        width: max-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .GH_gugudan_box{
         width: 320px;
@@ -330,9 +334,10 @@
   @media (min-width: 1024px) and (max-width: 1280px){
 
     .Game_choice_Container{
-        display: inline-block;
-        display: inline-block;
-        width: 1024px;
+        width: max-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .GH_gugudan_box{
         width: 320px;
@@ -507,9 +512,10 @@
 
 @media (min-width: 1281px){
     .Game_choice_Container{
-        display: inline-block;
-        display: inline-block;
-        width: 1280px;
+        width: max-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .GH_gugudan_box{
         width: 320px;

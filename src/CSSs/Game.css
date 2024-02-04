@@ -162,7 +162,9 @@
     .top_number{
         width: 100px;
         height: 30px;
-        margin-left: 24px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 24px;
         background: #FFFEFE;
         border: 1px dashed rgba(106, 106, 106, 0.5);
@@ -449,6 +451,9 @@
 @media (min-width: 768px) and (max-width: 1024px){
     .limit_bar_container{
         display: block;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
     }
     .limit_bar_img{
         display: inline-flex;
@@ -610,12 +615,16 @@
         width: 100%;
     }
     .Form{
-        display: inline-block;
+        width: max-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .top_number{
         width: 180px;
         height: 50px;
-        margin-left: 100px;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 26px;
         background: #FFFEFE;
         border: 1px dashed rgba(106, 106, 106, 0.5);
@@ -694,7 +703,9 @@
     .G_result_box{
         width: 1024px;
         height: 100%;
-        display: inline-block;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .result_text{
         display: none;
@@ -946,6 +957,9 @@
 @media (min-width: 1024px) and (max-width: 1280px){
     .limit_bar_container{
         display: block;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
     }
     .limit_bar_img{
         display: inline-flex;
@@ -1105,12 +1119,16 @@
         width: 100%;
     }
     .Form{
-        display: inline-block;
+        width: max-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .top_number{
         width: 180px;
         height: 50px;
-        margin-left: 100px;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 26px;
         background: #FFFEFE;
         border: 1px dashed rgba(106, 106, 106, 0.5);
@@ -1189,7 +1207,9 @@
     .G_result_box{
         width: 1024px;
         height: 100%;
-        display: inline-block;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .result_text{
         display: none;
@@ -1443,6 +1463,9 @@
 @media (min-width: 1281px){
     .limit_bar_container{
         display: block;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
     }
     .limit_bar_img{
         display: inline-flex;
@@ -1602,12 +1625,17 @@
         width: 100%;
     }
     .Form{
-        display: inline-block;
+        width: max-content;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .top_number{
         width: 180px;
         height: 50px;
-        margin-left: 100px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
         margin-top: 26px;
         background: #FFFEFE;
         border: 1px dashed rgba(106, 106, 106, 0.5);
@@ -1629,7 +1657,7 @@
     }
     .InputBox{
         display: inline-block;
-        width: 185px;
+        width: 135px;
         height: 133px;
         background: #FFFFFF;
         border: 2px solid rgba(106, 106, 106, 0.25);
@@ -1684,7 +1712,9 @@
     .G_result_box{
         width: 1024px;
         height: 100%;
-        display: inline-block;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
     .result_text{
         display: none;

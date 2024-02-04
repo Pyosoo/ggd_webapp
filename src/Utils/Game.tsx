@@ -6,6 +6,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { useSelector } from "react-redux";
+import { storeState } from "../store";
 
 let LimitCountDown;
 var flag = false;
@@ -108,7 +109,7 @@ function Game(props) {
   const [textcount, setTextcount] = useState(3);
   const [limitTime, setLimitTime] = useState(120);
 
-  const ImageIndex = useSelector((state) => state.ImageIndex);
+  const ImageIndex = useSelector((state: storeState) => state.ImageIndex);
 
   let navigate = useNavigate();
 
@@ -336,104 +337,25 @@ function Game(props) {
             ></input>
           </p>
 
-          <div>
-            <button
-              id="1"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              1
-            </button>
-            <button
-              id="2"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              2
-            </button>
-            <button
-              id="3"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              3
-            </button>
-          </div>
-
-          <div>
-            <button
-              id="4"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              4
-            </button>
-            <button
-              id="5"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              5
-            </button>
-            <button
-              id="6"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              6
-            </button>
-          </div>
-
-          <div>
-            <button
-              id="7"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              7
-            </button>
-            <button
-              id="8"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              8
-            </button>
-            <button
-              id="9"
-              className="Keypad_Btn"
-              onClick={(e) => {
-                e.preventDefault();
-                setAnswer(answer + e.target.id);
-              }}
-            >
-              9
-            </button>
-          </div>
+          {["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((d, i) => {
+            return (
+              <>
+                <button
+                  id={d}
+                  className="Keypad_Btn"
+                  onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                    e.preventDefault();
+                    const buttonElement = e.target as HTMLButtonElement;
+                    setAnswer(answer + d);
+                  }}
+                >
+                  {d}
+                </button>
+                {(i + 1) % 3 === 0 ? <br /> : null}
+              </>
+            );
+          })}
+          <div></div>
 
           <div>
             <button
@@ -450,7 +372,7 @@ function Game(props) {
               className="Keypad_Btn"
               onClick={(e) => {
                 e.preventDefault();
-                setAnswer(answer + e.target.id);
+                setAnswer(answer + "0");
               }}
             >
               0

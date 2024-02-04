@@ -11,6 +11,31 @@
         text-align: center;
     }
 
+    .DanBox{
+        width: 270px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid rgba(196, 196, 196, 0.75);
+    }
+    .DanLine{
+        width: 100%;
+        height: 25px;
+        line-height: 25px;
+        vertical-align: middle;
+        font-size: 19px;
+        font-weight: 600;
+    }
+    .hide {
+        display: none;
+    }
+    .btnOn{
+        background-color: #FFCC00 !important;
+    }
+    .numberOn{
+        background-color: #88D7F6 !important;
+    }
     .showmodebtn_box{
         width: 100%;
         height: 45px;
@@ -62,7 +87,6 @@
     .dan_btn{
         width: 59px;
         height: 54px;
-        margin-right: 15px;
         margin-top: 5px;
         margin-bottom: 6px;
         background: #FFFFFF;
@@ -76,7 +100,6 @@
     .dan_btn:hover{
         width: 59px;
         height: 54px;
-        margin-right: 15px;
         margin-top: 5px;
         margin-bottom: 6px;
         background: #88D7F6;
@@ -116,6 +139,13 @@
         border-radius: 5px;
         font-family: BMJUA;
     }
+    .DanButtonLine{
+        width: 290px;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-between;
+    }
     
     .Showall_list{
         display: block;
@@ -143,6 +173,28 @@
 
     .body{
         height: 570px;
+    }
+    .DanBox{
+        width: 350px;
+        margin-top: auto;
+        border: 1px solid rgba(196, 196, 196, 0.75);
+    }
+    .DanLine{
+        width: 100%;
+        height: 55px;
+        line-height: 55px;
+        vertical-align: middle;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .hide {
+        display: none;
+    }
+    .btnOn{
+        background-color: #FFCC00;
+    }
+    .numberOn{
+        background-color: #88D7F6 !important;
     }
     .Showall_Container {
         width: 100%;
@@ -269,11 +321,32 @@
     .body{
         height: 570px;
     }
+    .DanBox{
+        width: 350px;
+        margin-top: auto;
+        border: 1px solid rgba(196, 196, 196, 0.75);
+    }
+    .DanLine{
+        width: 100%;
+        height: 55px;
+        line-height: 55px;
+        vertical-align: middle;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .hide {
+        display: none;
+    }
+    .btnOn{
+        background-color: #FFCC00;
+    }
+    .numberOn{
+        background-color: #88D7F6 !important;
+    }
     .Showall_Container {
         width: 100%;
         text-align: center;
     }
-
     .ShowBox_BtnBox{
         display: flex;
         width: 100%;
@@ -397,6 +470,28 @@
         width: 100%;
         text-align: center;
     }
+    .DanBox{
+        width: 350px;
+        margin-top: auto;
+        border: 1px solid rgba(196, 196, 196, 0.75);
+    }
+    .DanLine{
+        width: 100%;
+        height: 55px;
+        line-height: 55px;
+        vertical-align: middle;
+        font-size: 22px;
+        font-weight: 600;
+    }
+    .hide {
+        display: none;
+    }
+    .btnOn{
+        background-color: #FFCC00;
+    }
+    .numberOn{
+        background-color: #88D7F6 !important;
+    }
 
     .ShowBox_BtnBox{
         display: flex;
@@ -454,6 +549,12 @@
         font-family: BMJUA;
         outline: 0;
         font-size: 25px;
+    }
+    .btnOn{
+        background-color: #FFCC00;
+    }
+    .numberOn{
+        background-color: #88D7F6 !important;
     }
     .dan_btn{
         width: 83px;
