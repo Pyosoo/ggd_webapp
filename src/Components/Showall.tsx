@@ -1,35 +1,6 @@
 import React, { useState } from "react";
 import "../CSSs/Showall.css";
 
-// let arr1=[], arr2=[], arr3=[], arr4=[];
-// // 맨처음 2단을 보여주기 위해 그냥 2단을 먼저 넣어놓는 부분=================================
-//     for (let j = 1; j <= 5; j++) {
-//         let result = 2 + " x " + j + " = " + 2 * j ;
-//         arr1 = [...arr1, result];
-//         result =  2 + " x " + j;
-//         arr2 = [...arr2, result];
-//     }
-//     // 5줄 4줄로 나눠서 보여주기 위해 다른배열에 넣어놓음..
-//     for(let j=6; j<10; j++){
-//         let result = 2 + " x " + j + " = " + 2 * j ;
-//         arr3 = [...arr3, result];
-//         result =  2 + " x " + j;
-//         arr4 = [...arr4, result];
-//     }
-
-//     let temp1 = arr1.map((menu, index) => (
-//         <li className="showall_listitem" key={index}>{menu}</li>) // key 중복 바꿔야함 !!=========================================
-//     );
-//     let temp2 = arr3.map((menu, index)=>(
-//         <li className="showall_listitem" key={index}>{menu}</li>
-//     ))
-//     let temp3 = arr2.map((menu, index)=>(
-//         <li className="showall_listitem" key={index}>{menu}</li>
-//     ))
-//     let temp4 = arr4.map((menu, index)=>(
-//         <li className="showall_listitem" key={index}>{menu}</li>
-//     ))
-
 function Showall() {
   const [showAnswer, setShowAnswer] = useState(true);
   const [number, setNumber] = useState(2);
@@ -84,32 +55,21 @@ function Showall() {
             외우고자 하는 구구단을 선택해주세요!
           </p>
           <div className="DanButtonLine">
-            {[2, 3, 4, 5].map((num, i) => {
+            {[2, 3, 4, 5, 6, 7, 8, 9].map((num, i) => {
               return (
-                <button
-                  className={number === num ? "dan_btn numberOn" : "dan_btn"}
-                  id={num + ""}
-                  onClick={btnClick(num)}
-                >
-                  {num}단
-                </button>
+                <>
+                  <button
+                    className={number === num ? "dan_btn numberOn" : "dan_btn"}
+                    id={num + ""}
+                    onClick={btnClick(num)}
+                  >
+                    {num}단
+                  </button>
+                  {i === 3 ? <br /> : null}
+                </>
               );
             })}
           </div>
-          <div className="DanButtonLine">
-            {[6, 7, 8, 9].map((num, i) => {
-              return (
-                <button
-                  className={number === num ? "dan_btn numberOn" : "dan_btn"}
-                  id={num + ""}
-                  onClick={btnClick(num)}
-                >
-                  {num}단
-                </button>
-              );
-            })}
-          </div>
-
           <div className="OnTablet">
             <button
               className={showAnswer ? "showmode_btn btnOn" : "showmode_btn"}

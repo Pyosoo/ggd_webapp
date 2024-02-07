@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import "../CSSs/Checkscore.css";
-import { connect } from "react-redux";
-import { actionCreators } from "../store";
 
 function Checkscore(props) {
   let score_arr = [];
   let EXIST;
 
-  let ImgArr = ["monkey", "mice", "tiger", "rabbit"];
   let scoreImgArr = ["bad", "good", "great"];
   let selectimg = 0;
   let imgindexbox = [];

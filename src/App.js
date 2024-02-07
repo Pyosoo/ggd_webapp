@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import MainPage from "./Components/MainPage.tsx";
-import Navibar2 from "./Utils/Navibar2.js";
+import Navibar2 from "./Utils/Navibar2.tsx";
 import Homepage from "./Components/Homepage.tsx";
 import Showall from "./Components/Showall.tsx";
 import EasyTest from "./Components/EasyTest.tsx";

@@ -11,6 +11,25 @@ export default function Homepage() {
 
   let ImgArr = ["monkey", "mice", "tiger", "rabbit"];
 
+  let pageLayout = [
+    {
+      name: "구구단표",
+      link: "/showall",
+    },
+    {
+      name: "연습하기",
+      link: "/practice",
+    },
+    {
+      name: "시험보기",
+      link: "/easytest",
+    },
+    {
+      name: "성적확인",
+      link: "/checkscore",
+    },
+  ];
+
   return (
     <div className="Homepage_Container">
       <div className="Homepage_ImgBox">
@@ -22,38 +41,17 @@ export default function Homepage() {
       </div>
 
       <div className="Homepage_BtnBox">
-        <button
-          className="Homepage_Btn"
-          id="1"
-          type="button"
-          onClick={() => navigate("/showall")}
-        >
-          구구단 표
-        </button>
-        <button
-          className="Homepage_Btn"
-          id="2"
-          type="button"
-          onClick={() => navigate("/practice")}
-        >
-          연습 하기
-        </button>
-        <button
-          className="Homepage_Btn"
-          id="3"
-          type="button"
-          onClick={() => navigate("/easytest")}
-        >
-          시험 보기
-        </button>
-        <button
-          className="Homepage_Btn"
-          id="4"
-          type="button"
-          onClick={() => navigate("/checkscore")}
-        >
-          {userName}의 성적 확인하기
-        </button>
+        {pageLayout.map((layout, index) => {
+          return (
+            <button
+              className="Homepage_Btn"
+              type="button"
+              onClick={() => navigate(layout.link)}
+            >
+              {layout.name}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

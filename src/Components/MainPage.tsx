@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "../CSSs/MainPage.css";
 import Navibar2 from "../Utils/Navibar2";
-import { connect } from "react-redux";
-import { actionCreators } from "../store";
 import { useNavigate } from "react-router-dom";
 
 function MainPage(props) {
@@ -15,21 +13,6 @@ function MainPage(props) {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
 
   const ImgArr = ["monkey", "mice", "tiger", "rabbit"];
-
-  const CheckID = () => {
-    // ID를 입력했다면 -> Display변경을 통해 Homepage로 전환
-    if (registerInput !== "") {
-      setRegisterDisplay("none");
-      setChoiceDisplay("grid");
-      localStorage.setItem("Nickname", registerInput);
-
-      // 이미지 이름과 UserName을 모든 컴포넌트에서 사용하기 편하게 Store에 저장
-      setImgIndex(currentImgIndex);
-      setUserName(registerInput);
-    } else {
-      alert("사용하실 닉네임을 설정해주세요!");
-    }
-  };
 
   return (
     <div>
@@ -79,7 +62,13 @@ function MainPage(props) {
             setRegisterInput(e.target.value);
           }}
         ></input>
-        <button className="Main_registerBtn" onClick={() => navigate("/home")}>
+        <button
+          className="Main_registerBtn"
+          onClick={() => {
+            localStorage.setItem("Nickname", registerInput);
+            navigate("/home");
+          }}
+        >
           등록하기
         </button>
       </div>
@@ -91,18 +80,4 @@ function MainPage(props) {
   );
 }
 
-// Redux state로부터 home에 prop으로써 전달한다는 뜻.
-function mapStateToProps(state, ownProps) {
-  return { UserPlusImageName: state }; //toDos에 state를 가져온다.
-}
-
-// reducer에 action을 알리는 함수
-function mapDispatchToProps(dispatch) {
-  return {
-    setImgIndex: (idx) => dispatch(actionCreators.setImgIndex(idx)),
-    setUserName: (idx) => dispatch(actionCreators.setUserName(idx)),
-    setDan: (idx) => dispatch(actionCreators.setDan(idx)),
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default MainPage;

@@ -275,31 +275,22 @@ function Game(props) {
                 if (e.key === "Enter") {
                   e.preventDefault();
                   if (Number(answer) === randnum1 * randnum2) {
-                    //정답일때
                     setCount(count + 1);
-                    //console.log(`${score}에서 `);
-                    //setScore(score + 1);
                     IncreaseScore();
-                    //console.log(`${score}로 증가`)
                     RightAnswer.push(
                       `${randnum1} x ${randnum2} = ${randnum1 * randnum2}`
                     );
                     makeRandom();
                     setAnswer("");
-                    //console.log(`정답, 현재 스코어 ${score}`);
                   } else {
-                    //오답일때
                     setCount(count + 1);
                     WrongAnswer.push(
                       `${randnum1} x ${randnum2} = ${randnum1 * randnum2}`
                     );
                     makeRandom();
                     setAnswer("");
-                    //console.log("오답");
                   }
                   if (Number(count) === 10) {
-                    // 모든 시험이 끝났을때
-                    //console.log(`맞음${score} 틀림:${count - score}`)
                     limit = 1;
                     flag = true;
                     setLimitTime(limit);
@@ -323,11 +314,6 @@ function Game(props) {
                     let boons = today.getMinutes();
                     tb.push(boons);
                     localStorage.setItem("BoonOfScore", JSON.stringify(tb));
-
-                    //        console.log(localStorage.getItem("Totalscore"));
-                    //        console.log(localStorage.getItem("YearOfScore"));
-                    //        console.log(localStorage.getItem("MonthOfScore"));
-                    //        console.log(localStorage.getItem("DateOfScore"));
 
                     mapingRightAnswer();
                     mapingWrongAnswer();
@@ -385,7 +371,6 @@ function Game(props) {
                   //정답일때
                   setCount(count + 1);
                   console.log(`${score}에서 `);
-                  //setScore(score + 1);
                   IncreaseScore();
                   console.log(`${score}로 증가`);
                   RightAnswer.push(
@@ -395,7 +380,6 @@ function Game(props) {
                   setAnswer("");
                   console.log(`정답, 현재 스코어 ${score}`);
                 } else {
-                  //오답일때
                   setCount(count + 1);
                   WrongAnswer.push(
                     `${randnum1} x ${randnum2} = ${randnum1 * randnum2}`
@@ -405,7 +389,6 @@ function Game(props) {
                   console.log("오답");
                 }
                 if (Number(count) === 10) {
-                  // 모든 시험이 끝났을때
                   flag = true;
                   setGameDP("none");
                   setResultDP("");
@@ -417,7 +400,7 @@ function Game(props) {
                   localStorage.setItem("YearOfScore", JSON.stringify(ty));
                   let month = today.getMonth();
                   tm.push(month + 1);
-                  localStorage.setItem("MonthOfScore", JSON.stringify(tm)); //월은 +1 해줘야함
+                  localStorage.setItem("MonthOfScore", JSON.stringify(tm));
                   let hour = today.getHours();
                   th.push(hour);
                   localStorage.setItem("HourOfScore", JSON.stringify(th));
@@ -427,11 +410,6 @@ function Game(props) {
                   let date = today.getDate();
                   td.push(date);
                   localStorage.setItem("DateOfScore", JSON.stringify(td));
-
-                  //    console.log(localStorage.getItem("Totalscore"));
-                  //    console.log(localStorage.getItem("YearOfScore"));
-                  //    console.log(localStorage.getItem("MonthOfScore"));
-                  //    console.log(localStorage.getItem("DateOfScore"));
 
                   mapingRightAnswer();
                   mapingWrongAnswer();
@@ -480,7 +458,6 @@ function Game(props) {
           <button
             className="G_Result_Btn G_Result_Btn1"
             onClick={(e) => {
-              // setScore(0);
               ZeroScore();
               setCount(1);
               setAnswer("");
