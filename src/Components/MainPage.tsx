@@ -4,7 +4,6 @@ import Navibar2 from "../Utils/Navibar2";
 import { useNavigate } from "react-router-dom";
 
 function MainPage(props) {
-  const { setImgIndex, setUserName, setDan } = props;
   const navigate = useNavigate();
 
   const [registerInput, setRegisterInput] = useState("");

@@ -8,6 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Routes, Route, Link, Outlet, useNavigate } from "react-router-dom";
 import "../CSSs/Navibar2.css";
 import { connect } from "react-redux";
+import { ResetData } from "./UtilFunc";
 
 const styles = {
   root: {
@@ -26,6 +27,8 @@ function Navibar2(props) {
   const [naviColor, setNaviColor] = useState<string>("#1E7CDE");
   const { classes } = props;
 
+  const nickname = localStorage.getItem("Nickname");
+
   let navigate = useNavigate();
 
   const handleDrawerToggle = (e) => {
@@ -38,6 +41,11 @@ function Navibar2(props) {
     }
   };
 
+  const handleLogOut = () => {
+    ResetData();
+    navigate("/");
+  };
+
   //console.log(`현재 Navibar이고 , Main으로 부터 받은 index 는 ${this.props.imgidx} 이다.` )
 
   return (
@@ -46,7 +54,7 @@ function Navibar2(props) {
         <AppBar
           className="Top_bar"
           position="static"
-          style={{ display: "block", backgroundColor: "#1E7CDE" }}
+          style={{ display: "flex", backgroundColor: "#1E7CDE" }}
         >
           <IconButton
             className={classes.menuButton}
@@ -56,16 +64,16 @@ function Navibar2(props) {
           >
             <MenuIcon className="hamburgeIcon" />
           </IconButton>
-          <p
-            className="Top_bar_text"
+          <span
+            className="hoverdCursor"
             style={{
-              display: "inline-block",
-              marginLeft: "auto",
-              marginRight: "auto",
+              margin: "auto 10px auto auto",
+              padding: 0,
             }}
+            onClick={handleLogOut}
           >
-            {topTitle}
-          </p>
+            캐릭터 선택하기
+          </span>
         </AppBar>
         <Drawer open={toggle}>
           <div className="navibar_body" style={{ backgroundColor: naviColor }}>
@@ -82,23 +90,23 @@ function Navibar2(props) {
             </div>
             <p className="Navibar_name">{props.name}</p>
             <MenuItem id="구구단 표" onClick={handleDrawerToggle}>
-              <Link className="linkitem" to="/showall">
+              <Link className="linkitem" to="/home/showall">
                 구구단 표
               </Link>
             </MenuItem>
             <MenuItem id="연습 하기" onClick={handleDrawerToggle}>
-              <Link className="linkitem" to="/practice">
+              <Link className="linkitem" to="/home/practice">
                 연습 하기
               </Link>
             </MenuItem>
             <MenuItem id="시험 보기" onClick={handleDrawerToggle}>
-              <Link className="linkitem" to="/easytest">
+              <Link className="linkitem" to="/home/easytest">
                 시험 보기
               </Link>
             </MenuItem>
             <MenuItem id="성적 확인" onClick={handleDrawerToggle}>
-              <Link className="linkitem" to="/checkscore">
-                {props.name}의 성적 확인
+              <Link className="linkitem" to="/home/checkscore">
+                {nickname}의 성적 확인
               </Link>
             </MenuItem>
           </div>

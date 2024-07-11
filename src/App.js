@@ -29,13 +29,13 @@ window.addEventListener("orientationchange", hideAddressBar, false); // 화면�
 function App() {
   return (
     <Routes>
-      <Route element={<MainPage />} />
-      <Route path="/" element={<Navibar2 />}>
-        <Route path="/" element={<Homepage />} />
-        <Route path="practice" element={<Practice />} />
-        <Route path="showall" element={<Showall />} />
-        <Route path="easytest" element={<EasyTest />} />
-        <Route path="checkscore" element={<Checkscore />} />
+      <Route path="/" element={<MainPage />} />
+      <Route path="/home" element={<Navibar2 />}>
+        <Route index element={<Homepage />} /> {/* /home */}
+        <Route path="practice" element={<Practice />} /> {/* /home/practice */}
+        <Route path="showall" element={<Showall />} /> {/* /home/showall */}
+        <Route path="easytest" element={<EasyTest />} /> {/* /home/easytest */}
+        <Route path="checkscore" element={<Checkscore />} />{" "}
       </Route>
     </Routes>
   );
